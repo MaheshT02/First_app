@@ -1,0 +1,11 @@
+.profile-container {
+    width: 700px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+}
+
+.profile-label {
+    font-weight: bold;
+}

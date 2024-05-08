@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Registration Details</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    .registration-details {
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 20px;
+        border-radius: 30px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .registration-details h2 {
+        margin-top: 0;
+        text-align: center;
+    }
+    .registration-details p {
+        margin-bottom: 10px;
+    }
+    #userInfo{
+        border: 1px solid;
+        padding: 10px;
+        border-radius: 20px;
+        height: auto;
+        font-size: large;
+    }
+
+</style>
+</head>
+<body>
+    <div class="registration-details">
+        <h2>Registration Details</h2>
+        <div id="userInfo"></div>
+    </div>
+
+    <script>
+        // Retrieve data from local storage
+        var registrationData = JSON.parse(localStorage.getItem("registrationData"));
+        var userInfoDiv = document.getElementById("userInfo");
+
+        // Display registration details
+        userInfoDiv.innerHTML = "<p><b>Name: </b>" + registrationData.name + "</p>" +"<hr>"+
+                                "<p><b>Email: </b>" + registrationData.email + "</p>" +"<hr>"+
+                                "<p><b>College: </b>" + registrationData.college + "</p>" +"<hr>"+
+                                "<p><b>Department: </b>" + registrationData.department + "</p>" +"<hr>"+
+                                "<p><b>Event: </b>" + registrationData.event + "</p>" +"<hr>"+
+                                "<p><b>Number of Participants: </b>" + registrationData.participants + "</p>" +"<hr>"+
+                                "<p><b>Registration Date: </b>" + registrationData.registrationDate + "</p>" +"<hr>"+
+                                "<p><b>Registration Fees: </b>" + registrationData.registrationFees + "</p>";
+    </script>
+</body>
+</html>

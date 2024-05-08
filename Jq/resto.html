@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Restaurant Management Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Add your custom CSS styles here */
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+    }
+
+    .container {
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    .menu-item {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      overflow: hidden;
+      width: auto;
+    }
+
+    .menu-item img {
+      width: auto;
+    }
+
+    .menu-item-details {
+      padding: 10px;
+    }
+
+    .menu-item-title {
+      font-weight: bold;
+    }
+
+    .menu-item-price {
+      color: #666;
+    }
+
+    .order-button {
+      background-color: #333;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .order-summary {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 20px;
+    }
+
+    .order-summary h3 {
+      margin-top: 0;
+    }
+
+    .order-summary-item {
+      margin-bottom: 5px;
+    }
+
+    .total-bill {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Restaurant Management Application</h1>
+</header>
+
+<div class="container">
+  <section id="menu">
+    <h2>Menu Card</h2>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/300" alt="Food Item">
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Food Item 1</h3>
+        <p class="menu-item-price">$10.00</p>
+        <button class="order-button" onclick="addToCart('Food Item 1', 10)">Order Now</button>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/300" alt="Food Item">
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Food Item 1</h3>
+        <p class="menu-item-price">$10.00</p>
+        <button class="order-button" onclick="addToCart('Food Item 1', 10)">Order Now</button>
+      </div>
+    </div>
+    <div class="menu-item">
+      <img src="https://via.placeholder.com/300" alt="Food Item">
+      <div class="menu-item-details">
+        <h3 class="menu-item-title">Food Item 1</h3>
+        <p class="menu-item-price">$10.00</p>
+        <button class="order-button" onclick="addToCart('Food Item 1', 10)">Order Now</button>
+      </div>
+    </div>
+    <!-- More menu items can be added here -->
+  </section>
+
+  <section id="facilities">
+    <h2>Facilities Provided by the Restaurant</h2>
+    <ul>
+      <li><i class="fas fa-wifi"></i> Free Wi-Fi</li>
+      <li><i class="fas fa-parking"></i> Parking Available</li>
+      <li><i class="fas fa-smoking-ban"></i> Non-Smoking Area</li>
+      <!-- Add more facilities here -->
+    </ul>
+  </section>
+
+  <section id="order-summary">
+    <h2>Order Summary</h2>
+    <div class="order-summary">
+      <h3>Your Cart</h3>
+      <div id="cart-items"></div>
+      <div class="total-bill" id="total-bill">Total: $0.00</div>
+    </div>
+  </section>
+</div>
+
+<script>
+  var cart = [];
+  var totalBill = 0;
+
+  function addToCart(item, price) {
+    cart.push({ item: item, price: price });
+    totalBill += price;
+    updateCart();
+  }
+
+  function updateCart() {
+    var cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    cart.forEach(function(item) {
+      var cartItemElement = document.createElement('div');
+      cartItemElement.textContent = item.item + ' - $' + item.price.toFixed(2);
+      cartItems.appendChild(cartItemElement);
+    });
+    document.getElementById('total-bill').textContent = 'Total: $' + totalBill.toFixed(2);
+  }
+</script>
+
+</body>
+</html>
